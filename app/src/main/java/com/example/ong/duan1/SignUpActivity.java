@@ -1,5 +1,6 @@
 package com.example.ong.duan1;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SignUpActivity extends AppCompatActivity {
     EditText edFullName, edEmail, edPassword, edRePassword;
     Button btnSignUp;
+    Button btnSignIn;
     FirebaseAuth mAuth;
     String password;
 
@@ -30,6 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUp=findViewById(R.id.btnSignUp);
 
         mAuth = FirebaseAuth.getInstance();
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,9 +42,15 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
-
-
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(SignUpActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
     }
+
     private void SignUpWithEmail(){
         String email=edEmail.getText().toString();
         mAuth.createUserWithEmailAndPassword(email, password)

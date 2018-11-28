@@ -1,21 +1,17 @@
 package com.example.ong.duan1;
 
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import com.example.ong.duan1.Fragment.NearMeFragment;
+import com.example.ong.duan1.Fragment.NewFragment;
+import com.example.ong.duan1.Fragment.StoresFragment;
 
 public class MainActivity extends AppCompatActivity {
-    DrawerLayout drawer;
-    Toolbar toolbar;
-    NavigationView navigation;
-    FragmentManager fManager;
     ViewPager pager;
     TabLayout tab;
 
@@ -48,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    class MyFragmentAdapter extends FragmentStatePagerAdapter {
 
+    class MyFragmentAdapter extends FragmentStatePagerAdapter {
         public MyFragmentAdapter(FragmentManager fm) {
             super(fm);
         }

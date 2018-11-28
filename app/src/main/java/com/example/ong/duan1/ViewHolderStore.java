@@ -19,7 +19,7 @@ public class ViewHolderStore extends RecyclerView.ViewHolder{
             @Override
             public void onClick(View v) {
                 int position=getLayoutPosition();
-                Toast.makeText(v.getContext(), position+"", Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), (position+1)+"", Toast.LENGTH_SHORT).show();
             }
         });
     }

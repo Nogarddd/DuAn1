@@ -4,12 +4,12 @@ public class Store {
     private String storeName;
     private String address;
 
+    public Store(){}
+
     public Store(String storeName, String address) {
         this.storeName = storeName;
         this.address = address;
     }
-
-    public Store(){}
 
     public String getStoreName() {
         return storeName;
