@@ -12,6 +12,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthEmailException;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 public class SignUpActivity extends AppCompatActivity {
     EditText edFullName, edEmail, edPassword, edRePassword;
@@ -29,6 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
         edPassword=findViewById(R.id.edPassword);
         edRePassword=findViewById(R.id.edRePassword);
         btnSignUp=findViewById(R.id.btnSignUp);
+        btnSignIn=findViewById(R.id.btnSignIn);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -39,6 +45,9 @@ public class SignUpActivity extends AppCompatActivity {
                 String rePassword=edRePassword.getText().toString();
                 if (password.equals(rePassword)){
                     SignUpWithEmail();
+                }
+                else{
+                    Toast.makeText(SignUpActivity.this, "Password does not match", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -58,9 +67,21 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(SignUpActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this, "Sign up successful", Toast.LENGTH_SHORT).show();
+                            Intent i=new Intent(SignUpActivity.this, MainActivity.class);
+                            startActivity(i);
                         } else {
-                            Toast.makeText(SignUpActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                            try {
+                                throw task.getException();
+                            } catch (FirebaseAuthUserCollisionException e){
+                                Toast.makeText(SignUpActivity.this, "User already exists", Toast.LENGTH_SHORT).show();
+                            } catch(FirebaseAuthWeakPasswordException e) {
+                                Toast.makeText(SignUpActivity.this, "Weak password", Toast.LENGTH_SHORT).show();
+                            } catch (FirebaseAuthInvalidCredentialsException e){
+                                Toast.makeText(SignUpActivity.this, "Invalid email", Toast.LENGTH_SHORT).show();
+                            } catch(Exception e) {
+                                Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 });

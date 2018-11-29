@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.example.ong.duan1.Model.Deal;
 import com.example.ong.duan1.R;
 import com.example.ong.duan1.ViewHolderDeal;
@@ -31,11 +33,20 @@ public class DealAdapter extends RecyclerView.Adapter<ViewHolderDeal> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDeal holder, final int position) {
         final Deal deal=ds.get(position);
+        holder.tvStoreName.setText(deal.getStoreName());
+        holder.tvFollower.setText(deal.getFollower()+"");
         holder.tvTitle.setText(deal.getTitle());
-        holder.tvDateStart.setText(deal.getDateStart());
-        holder.tvDateEnd.setText(deal.getDateEnd());
-        holder.tvQuantity.setText(deal.getQuantity()+"");
-        holder.ivDealAvatar.setImageResource(R.mipmap.ic_launcher);
+        holder.tvPercentSale.setText(deal.getPercentSale()+"%");
+        holder.tvNewPrice.setText(deal.getNewPrice()+" đ");
+        holder.tvOldPrice.setText(deal.getOldPrice()+" đ");
+        holder.tvSaved.setText(deal.getSaved()+"");
+        holder.ivStoreLogo.setImageResource(R.drawable.kfc_logo);
+        holder.btnFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(c, "Followed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

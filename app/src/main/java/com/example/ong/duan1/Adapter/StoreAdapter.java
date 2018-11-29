@@ -1,19 +1,25 @@
 package com.example.ong.duan1.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.example.ong.duan1.Model.Store;
 import com.example.ong.duan1.R;
+import com.example.ong.duan1.StoreActivity;
 import com.example.ong.duan1.ViewHolderStore;
 import java.util.List;
 
 public class StoreAdapter extends RecyclerView.Adapter<ViewHolderStore> {
     List<Store> ds;
     Context c;
+    View v;
 
     public StoreAdapter(Context c, List<Store> ds)
     {
@@ -24,7 +30,7 @@ public class StoreAdapter extends RecyclerView.Adapter<ViewHolderStore> {
     @NonNull
     @Override
     public ViewHolderStore onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(c).inflate(R.layout.viewholderstore_layout,parent,false);
+        v= LayoutInflater.from(c).inflate(R.layout.viewholderstore_layout,parent,false);
         return new ViewHolderStore(v);
     }
 
@@ -32,8 +38,22 @@ public class StoreAdapter extends RecyclerView.Adapter<ViewHolderStore> {
     public void onBindViewHolder(@NonNull ViewHolderStore holder, final int position) {
         final Store store=ds.get(position);
         holder.tvStoreName.setText(store.getStoreName());
-        holder.tvAddress.setText(store.getAddress());
-        holder.ivStoreAvatar.setImageResource(R.mipmap.ic_launcher);
+        holder.ivStoreLogo.setImageResource(R.drawable.kfc_logo);
+        holder.btnFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(c, "Followed", Toast.LENGTH_SHORT).show();
+            }
+        });
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(v.getContext(), StoreActivity.class);
+                i.putExtra("data", store);
+                v.getContext().startActivity(i);
+            }
+        });
+
     }
 
     @Override

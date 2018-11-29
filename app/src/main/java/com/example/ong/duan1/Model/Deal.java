@@ -1,34 +1,52 @@
 package com.example.ong.duan1.Model;
 
 public class Deal {
+    private String storeName;
+    private int follower;
     private String title;
-    private String dateStart;
-    private String dateEnd;
-    private int quantity;
+    private double percentSale;
+    private double newPrice;
+    private double oldPrice;
+    private int saved;
 
     public Deal(){}
 
-    public Deal(String title, String dateStart, String dateEnd, int quantity) {
+    public Deal(String storeName, int follower, String title, double percentSale, double newPrice, double oldPrice, int saved) {
+        this.storeName = storeName;
+        this.follower = follower;
         this.title = title;
-        this.dateStart = dateStart;
-        this.dateEnd = dateEnd;
-        this.quantity = quantity;
+        this.percentSale = percentSale;
+        this.newPrice = newPrice;
+        this.oldPrice = oldPrice;
+        this.saved = saved;
+    }
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public int getFollower() {
+        return follower;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public String getDateStart() {
-        return dateStart;
+    public double getPercentSale() {
+        return percentSale;
     }
 
-    public String getDateEnd() {
-        return dateEnd;
+    public double getNewPrice() {
+        return newPrice;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public double getOldPrice() {
+        return oldPrice;
+    }
+
+    public int getSaved() {
+        return saved;
     }
 }
 

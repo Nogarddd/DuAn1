@@ -6,14 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@color/colorWhite"
+        android:background="@color/colorPrimary"></android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabTextColor="#ffffff"
+        app:tabTextColor="@color/colorBlack"
         app:tabSelectedTextColor="#ff0000"
-        android:background="#413e3e"></android.support.design.widget.TabLayout>
+        android:background="@drawable/tablayout_border_bottom"></android.support.design.widget.TabLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
