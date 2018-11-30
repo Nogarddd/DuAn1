@@ -11,6 +11,7 @@ public class ViewHolderDeal extends RecyclerView.ViewHolder{
     public TextView tvStoreName, tvFollower, tvTitle, tvPercentSale, tvNewPrice, tvOldPrice, tvSaved;
     public ImageView ivStoreLogo;
     public Button btnFollow;
+    public Button btnSave, btnShare, btnGetCode;
     public ViewHolderDeal(View v)
     {
         super(v);
@@ -23,6 +24,9 @@ public class ViewHolderDeal extends RecyclerView.ViewHolder{
         tvSaved=v.findViewById(R.id.tvSaved);
         ivStoreLogo=v.findViewById(R.id.ivStoreLogo);
         btnFollow=v.findViewById(R.id.btnFollow);
+        btnSave=v.findViewById(R.id.btnSave);
+        btnShare=v.findViewById(R.id.btnShare);
+        btnGetCode=v.findViewById(R.id.btnGetCode);
 
         v.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,6 +1,7 @@
 package com.example.ong.duan1.Adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,12 +40,31 @@ public class DealAdapter extends RecyclerView.Adapter<ViewHolderDeal> {
         holder.tvPercentSale.setText(deal.getPercentSale()+"%");
         holder.tvNewPrice.setText(deal.getNewPrice()+" đ");
         holder.tvOldPrice.setText(deal.getOldPrice()+" đ");
+        holder.tvOldPrice.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         holder.tvSaved.setText(deal.getSaved()+"");
         holder.ivStoreLogo.setImageResource(R.drawable.kfc_logo);
         holder.btnFollow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(c, "Followed", Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(c, "Saved", Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(c, "Shared", Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.btnGetCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(c, "Get code", Toast.LENGTH_SHORT).show();
             }
         });
     }

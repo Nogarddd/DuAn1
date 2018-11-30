@@ -191,7 +191,7 @@
                         android:layout_marginRight="10dp">
 
                         <Button
-                            android:id="@+id/button2"
+                            android:id="@+id/btnSave"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:background="@color/colorWhite"
@@ -204,7 +204,7 @@
                             android:textSize="8dp" />
 
                         <Button
-                            android:id="@+id/button4"
+                            android:id="@+id/btnShare"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:drawableLeft="@drawable/ic_share"
@@ -216,7 +216,7 @@
                             android:background="@color/colorWhite"/>
 
                         <Button
-                            android:id="@+id/button5"
+                            android:id="@+id/btnGetCode"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:textColor="#a3a3a3"
