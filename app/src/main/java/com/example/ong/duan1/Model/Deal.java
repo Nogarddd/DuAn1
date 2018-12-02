@@ -1,6 +1,8 @@
 package com.example.ong.duan1.Model;
 
-public class Deal {
+import java.io.Serializable;
+
+public class Deal implements Serializable {
     private String storeName;
     private int follower;
     private String title;

@@ -2,7 +2,6 @@ package com.example.ong.duan1.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,7 +11,7 @@ import android.widget.Toast;
 
 import com.example.ong.duan1.Model.Store;
 import com.example.ong.duan1.R;
-import com.example.ong.duan1.StoreActivity;
+import com.example.ong.duan1.StoreDetailActivity;
 import com.example.ong.duan1.ViewHolderStore;
 import java.util.List;
 
@@ -48,7 +47,7 @@ public class StoreAdapter extends RecyclerView.Adapter<ViewHolderStore> {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(v.getContext(), StoreActivity.class);
+                Intent i=new Intent(v.getContext(), StoreDetailActivity.class);
                 i.putExtra("data", store);
                 v.getContext().startActivity(i);
             }

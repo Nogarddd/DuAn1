@@ -23,11 +23,12 @@
         <TextView
             android:id="@+id/tvStoreName"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="26dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:text="Store's name"
             android:textColor="@color/colorBlack"
+            android:gravity="center"
             android:textSize="18dp"
             app:layout_constraintStart_toEndOf="@+id/ivStoreLogo"
             app:layout_constraintTop_toTopOf="@+id/ivStoreLogo" />
@@ -47,7 +48,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:text="15k"
-            android:textColor="#a3a3a3"
+            android:textColor="@color/colorLightGray"
             android:textSize="12dp"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/tvStoreName" />

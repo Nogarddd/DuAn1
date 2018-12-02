@@ -1,5 +1,6 @@
 package com.example.ong.duan1;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
@@ -28,12 +29,5 @@ public class ViewHolderDeal extends RecyclerView.ViewHolder{
         btnShare=v.findViewById(R.id.btnShare);
         btnGetCode=v.findViewById(R.id.btnGetCode);
 
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position=getLayoutPosition();
-                Toast.makeText(v.getContext(), (position+1)+"", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }

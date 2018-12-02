@@ -1,6 +1,5 @@
 package com.example.ong.duan1.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import com.example.ong.duan1.Adapter.StoreAdapter;
 import com.example.ong.duan1.Model.Store;
 import com.example.ong.duan1.R;
-import com.example.ong.duan1.StoreActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
