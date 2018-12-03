@@ -11,8 +11,21 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleTextColor="@color/colorWhite"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        app:theme="@style/WhiteColorItem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/colorWhite" />
+
+    </android.support.v7.widget.Toolbar>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,55 +33,44 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivStoreLogo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:src="@drawable/kfc_logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:layout_editor_absoluteX="40dp"
+            tools:layout_editor_absoluteY="16dp" />
 
         <TextView
             android:id="@+id/tvStoreName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="25dp"
             android:text="Store's name"
             android:textColor="@color/colorBlack"
             android:textSize="18dp"
-            app:layout_constraintStart_toEndOf="@+id/ivStoreLogo"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:layout_editor_absoluteX="180dp"
+            tools:layout_editor_absoluteY="25dp" />
 
         <TextView
             android:id="@+id/tvAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:text="123 Nam Ky Khoi Nghia"
-            app:layout_constraintStart_toStartOf="@+id/tvStoreName"
-            app:layout_constraintTop_toBottomOf="@+id/tvStoreName" />
+            tools:layout_editor_absoluteX="180dp"
+            tools:layout_editor_absoluteY="86dp" />
 
         <Button
             android:id="@+id/btnSeeOnMap"
-            android:layout_width="161dp"
-            android:layout_height="44dp"
-            android:layout_marginTop="5dp"
+            android:layout_width="133dp"
+            android:layout_height="35dp"
             android:background="@drawable/bg_btnseeonmap"
             android:text="See on map"
             android:textColor="@color/colorWhite"
-            app:layout_constraintStart_toStartOf="@+id/tvAddress"
-            app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+            tools:layout_editor_absoluteX="180dp"
+            tools:layout_editor_absoluteY="105dp" />
 
         <Button
             android:id="@+id/btnFollow"
             android:layout_width="81dp"
             android:layout_height="26dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
             android:background="@drawable/bg_btnfollow"
             android:drawableLeft="@drawable/ic_star_unfollow_blue"
             android:drawablePadding="-12dp"
@@ -78,7 +80,7 @@
             android:textColor="#445fcc"
             android:textSize="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:layout_editor_absoluteY="48dp" />
 
         <TextView
             android:id="@+id/textView"

@@ -2,11 +2,13 @@ package com.example.ong.duan1;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -33,14 +35,22 @@ public class StoreDetailActivity extends AppCompatActivity {
     TextView tvStoreName, tvAddress;
     Button btnSeeOnMap;
     Store store;
+    TextView toolbar_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_detail);
         rv=findViewById(R.id.recycler);
+
         toolbar=findViewById(R.id.toolbar);
+        toolbar_title=findViewById(R.id.toolbar_title);
+        toolbar_title.setText("Store Detail");
         setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("");
+
         tvStoreName=findViewById(R.id.tvStoreName);
         tvAddress=findViewById(R.id.tvAddress);
         btnSeeOnMap=findViewById(R.id.btnSeeOnMap);
@@ -80,5 +90,16 @@ public class StoreDetailActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default: break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

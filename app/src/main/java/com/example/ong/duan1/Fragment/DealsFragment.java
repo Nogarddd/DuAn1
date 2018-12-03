@@ -1,6 +1,7 @@
 package com.example.ong.duan1.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import com.example.ong.duan1.Adapter.DealHorizontalAdapter;
 import com.example.ong.duan1.Adapter.DealVerticalAdapter;
 import com.example.ong.duan1.Model.Deal;
 import com.example.ong.duan1.R;
+import com.example.ong.duan1.SeeAllActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -90,12 +92,16 @@ public class DealsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "See all", Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(getActivity(), SeeAllActivity.class);
+                startActivity(i);
             }
         });
         seeAllEnding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "See all", Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(getActivity(), SeeAllActivity.class);
+                startActivity(i);
             }
         });
         return v;

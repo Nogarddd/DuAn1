@@ -3,6 +3,7 @@ package com.example.ong.duan1;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -11,7 +12,7 @@ import com.example.ong.duan1.Model.Deal;
 public class DealDetailActivity extends AppCompatActivity {
     TextView tvStoreName, tvFollower, tvTitle, tvPercentSale, tvNewPrice, tvOldPrice, tvSaved;
     TextView toolbar_title;
-    android.support.v7.widget.Toolbar toolbar;
+    Toolbar toolbar;
     Deal deal;
 
     @Override

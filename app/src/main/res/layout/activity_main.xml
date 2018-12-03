@@ -19,8 +19,9 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:titleTextColor="@color/colorWhite"
                 android:background="@color/colorPrimary"
+                app:theme="@style/WhiteColorItem"
+                app:titleTextColor="@color/colorWhite"
                 app:layout_scrollFlags="scroll|enterAlways|snap" />
 
         </android.support.design.widget.AppBarLayout>
