@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,7 +13,7 @@ public class ViewHolderDeal extends RecyclerView.ViewHolder{
     public TextView tvStoreName, tvFollower, tvTitle, tvPercentSale, tvNewPrice, tvOldPrice, tvSaved;
     public ImageView ivStoreLogo;
     public Button btnFollow;
-    public Button btnSave, btnShare, btnGetCode;
+    public LinearLayout btnSave, btnShare, btnGetCode;
     public ViewHolderDeal(View v)
     {
         super(v);

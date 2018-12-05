@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 public class SignUpActivity extends AppCompatActivity {
-    EditText edFullName, edEmail, edPassword, edRePassword;
+    EditText edEmail, edPassword, edRePassword;
     Button btnSignUp;
     Button btnLogin;
     FirebaseAuth mAuth;
@@ -29,7 +29,6 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        edFullName=findViewById(R.id.edFullName);
         edEmail=findViewById(R.id.edEmail);
         edPassword=findViewById(R.id.edPassword);
         edRePassword=findViewById(R.id.edRePassword);
@@ -61,14 +60,15 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void SignUpWithEmail(){
-        String email=edEmail.getText().toString();
+        final String email=edEmail.getText().toString();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(SignUpActivity.this, "Sign up successful", Toast.LENGTH_SHORT).show();
-                            Intent i=new Intent(SignUpActivity.this, MainActivity.class);
+                            Intent i=new Intent(SignUpActivity.this, UpdateProfileActivity.class);
+                            i.putExtra("email", email);
                             startActivity(i);
                         } else {
                             try {

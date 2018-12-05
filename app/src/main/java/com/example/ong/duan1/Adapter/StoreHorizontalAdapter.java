@@ -15,12 +15,12 @@ import com.example.ong.duan1.StoreDetailActivity;
 import com.example.ong.duan1.ViewHolderStore;
 import java.util.List;
 
-public class StoreAdapter extends RecyclerView.Adapter<ViewHolderStore> {
+public class StoreHorizontalAdapter extends RecyclerView.Adapter<ViewHolderStore> {
     List<Store> ds;
     Context c;
     View v;
 
-    public StoreAdapter(Context c, List<Store> ds)
+    public StoreHorizontalAdapter(Context c, List<Store> ds)
     {
         this.ds=ds;
         this.c=c;
@@ -29,7 +29,13 @@ public class StoreAdapter extends RecyclerView.Adapter<ViewHolderStore> {
     @NonNull
     @Override
     public ViewHolderStore onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        v= LayoutInflater.from(c).inflate(R.layout.viewholderstore_layout,parent,false);
+        v=LayoutInflater.from(c).inflate(R.layout.viewholderstore_layout,parent,false);
+
+        ViewGroup.LayoutParams layoutParams = v.getLayoutParams();
+        layoutParams.width = (int) (parent.getWidth() * 0.9);
+
+        v.setLayoutParams(layoutParams);
+
         return new ViewHolderStore(v);
     }
 
@@ -38,6 +44,7 @@ public class StoreAdapter extends RecyclerView.Adapter<ViewHolderStore> {
         final Store store=ds.get(position);
         holder.tvStoreName.setText(store.getStoreName());
         holder.ivStoreLogo.setImageResource(R.drawable.kfc_logo);
+        holder.tvFollower.setText(store.getFollower()+"");
         holder.btnFollow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

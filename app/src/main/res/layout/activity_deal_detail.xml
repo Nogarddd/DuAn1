@@ -27,7 +27,6 @@
     </android.support.v7.widget.Toolbar>
 
     <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar">
@@ -70,6 +69,7 @@
                     android:id="@+id/imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:tint="@color/colorLightGray"
                     app:layout_constraintStart_toStartOf="@+id/tvStoreName"
                     app:layout_constraintTop_toBottomOf="@+id/tvStoreName"
                     app:srcCompat="@drawable/ic_star_unfollow_gray" />
@@ -120,8 +120,8 @@
 
                         <ImageView
                             android:id="@+id/ivDeal"
-                            android:layout_width="156dp"
-                            android:layout_height="156dp"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
                             app:srcCompat="@drawable/kfc_ads" />
 
                         <LinearLayout
@@ -156,7 +156,7 @@
                                     android:paddingBottom="7dp"
                                     android:background="@drawable/bg_percentsale"
                                     android:text="30%"
-                                    android:textSize="12dp"
+                                    android:textSize="10dp"
                                     android:textColor="@color/colorWhite" />
 
                                 <TextView
@@ -181,9 +181,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:layout_marginTop="15dp"
+                                android:layout_marginTop="10dp"
                                 android:gravity="center"
-                                android:layout_marginBottom="5dp">
+                                android:layout_marginBottom="15dp">
 
                                 <TextView
                                     android:id="@+id/textView5"
@@ -191,7 +191,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="Kết thúc trong 01:23:45"
                                     android:textColor="@color/colorLightGray"
-                                    android:textSize="10dp"
+                                    android:textSize="12dp"
                                     android:layout_weight="1"/>
 
                                 <ImageView
@@ -228,7 +228,8 @@
                     android:layout_height="wrap_content"
                     android:text="Detail"
                     android:textColor="#00098e"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -248,7 +249,8 @@
                     android:layout_height="wrap_content"
                     android:text="Comments"
                     android:textColor="#00098e"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -268,7 +270,8 @@
                     android:layout_height="wrap_content"
                     android:text="Comments"
                     android:textColor="#00098e"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -284,43 +287,80 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:gravity="bottom">
+        android:gravity="bottom"
+        android:background="#e7e7e7">
 
-        <Button
+        <LinearLayout
             android:id="@+id/btnSave"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="#e7e7e7"
-            android:drawableLeft="@drawable/ic_heart"
-            android:drawablePadding="-35dp"
-            android:paddingLeft="30dp"
             android:layout_weight="1"
-            android:text="Save"
-            android:textColor="@color/colorLightGray" />
+            android:gravity="center"
+            android:padding="10dp">
 
-        <Button
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_heart" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:textSize="16dp"
+                android:textColor="@color/colorLightGray"
+                android:layout_marginLeft="2dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnShare"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="#e7e7e7"
-            android:drawableLeft="@drawable/ic_share"
-            android:drawablePadding="-30dp"
-            android:paddingLeft="30dp"
             android:layout_weight="1"
-            android:text="Share"
-            android:textColor="@color/colorLightGray" />
+            android:gravity="center"
+            android:padding="10dp">
 
-        <Button
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_share"
+                android:tint="@color/colorLightGray"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share"
+                android:textSize="16dp"
+                android:textColor="@color/colorLightGray"
+                android:layout_marginLeft="2dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnGetCode"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="#e7e7e7"
-            android:drawableLeft="@drawable/ic_getcode"
-            android:drawablePadding="-25dp"
-            android:paddingLeft="20dp"
             android:layout_weight="1"
-            android:text="Get Code"
-            android:textColor="@color/colorLightGray" />
+            android:gravity="center"
+            android:background="@color/colorRed"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorWhite"
+                app:srcCompat="@drawable/ic_getcode" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get code"
+                android:textSize="16dp"
+                android:textColor="@color/colorWhite"
+                android:layout_marginLeft="2dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

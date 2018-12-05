@@ -8,7 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.ong.duan1.Adapter.StoreAdapter;
+import com.example.ong.duan1.Adapter.StoreHorizontalAdapter;
+import com.example.ong.duan1.Adapter.StoreVerticalAdapter;
 import com.example.ong.duan1.Model.Store;
 import com.example.ong.duan1.R;
 import com.google.firebase.database.DataSnapshot;
@@ -49,7 +50,7 @@ public class StoresFragment extends Fragment {
                     Store s=store.getValue(Store.class);
                     ds.add(s);
                 }
-                StoreAdapter adapter=new StoreAdapter(v.getContext(),ds);
+                StoreVerticalAdapter adapter=new StoreVerticalAdapter(v.getContext(),ds);
                 LinearLayoutManager lmanager=new LinearLayoutManager(v.getContext());
                 rv.setLayoutManager(lmanager);
                 rv.setAdapter(adapter);

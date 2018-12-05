@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ong.duan1.Adapter.DealHorizontalAdapter;
+import com.example.ong.duan1.Adapter.DealVerticalAdapter;
 import com.example.ong.duan1.Model.Deal;
 import com.example.ong.duan1.Model.Store;
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +29,6 @@ public class StoreDetailActivity extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView rv;
     List<Deal> ds=new ArrayList<Deal>();
-    View v;
     FirebaseDatabase database;
     DatabaseReference databaseReference;
 
@@ -36,6 +36,7 @@ public class StoreDetailActivity extends AppCompatActivity {
     Button btnSeeOnMap;
     Store store;
     TextView toolbar_title;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +62,7 @@ public class StoreDetailActivity extends AppCompatActivity {
         btnSeeOnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(StoreDetailActivity.this, MainActivity.class);
-                i.putExtra("data", store);
-                startActivity(i);
+
             }
         });
 
@@ -79,7 +78,7 @@ public class StoreDetailActivity extends AppCompatActivity {
                     Deal d=deal.getValue(Deal.class);
                     ds.add(d);
                 }
-                DealHorizontalAdapter adapter=new DealHorizontalAdapter(StoreDetailActivity.this,ds);
+                DealVerticalAdapter adapter=new DealVerticalAdapter(StoreDetailActivity.this,ds);
                 LinearLayoutManager lmanager=new LinearLayoutManager(StoreDetailActivity.this);
                 rv.setLayoutManager(lmanager);
                 rv.setAdapter(adapter);

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StoreDetailActivity"
+    android:background="#e7e7e7"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -27,93 +28,157 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/ivStoreLogo"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/kfc_logo"
-            tools:layout_editor_absoluteX="40dp"
-            tools:layout_editor_absoluteY="16dp" />
-
-        <TextView
-            android:id="@+id/tvStoreName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Store's name"
-            android:textColor="@color/colorBlack"
-            android:textSize="18dp"
-            tools:layout_editor_absoluteX="180dp"
-            tools:layout_editor_absoluteY="25dp" />
-
-        <TextView
-            android:id="@+id/tvAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="123 Nam Ky Khoi Nghia"
-            tools:layout_editor_absoluteX="180dp"
-            tools:layout_editor_absoluteY="86dp" />
-
-        <Button
-            android:id="@+id/btnSeeOnMap"
-            android:layout_width="133dp"
-            android:layout_height="35dp"
-            android:background="@drawable/bg_btnseeonmap"
-            android:text="See on map"
-            android:textColor="@color/colorWhite"
-            tools:layout_editor_absoluteX="180dp"
-            tools:layout_editor_absoluteY="105dp" />
-
-        <Button
-            android:id="@+id/btnFollow"
-            android:layout_width="81dp"
-            android:layout_height="26dp"
-            android:background="@drawable/bg_btnfollow"
-            android:drawableLeft="@drawable/ic_star_unfollow_blue"
-            android:drawablePadding="-12dp"
-            android:gravity="center"
-            android:paddingLeft="10dp"
-            android:text="Follow"
-            android:textColor="#445fcc"
-            android:textSize="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteY="48dp" />
-
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Gioi thieu"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSeeOnMap" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="Danh sách deal"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite">
 
-    </android.support.constraint.ConstraintLayout>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivStoreLogo"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/kfc_logo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        tools:layout_editor_absoluteX="16dp"
-        android:layout_marginTop="5dp"
-        tools:layout_editor_absoluteY="74dp"
-        android:layout_weight="1"></android.support.v7.widget.RecyclerView>
+                <TextView
+                    android:id="@+id/tvStoreName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Store's name"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toEndOf="@+id/ivStoreLogo"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="156dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:text="Address: 123 Nam Ky Khoi Nghia, Q.3, TPHCM"
+                    android:textSize="12dp"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/btnFollow" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    app:layout_constraintStart_toStartOf="@+id/tvStoreName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStoreName"
+                    android:tint="@color/colorLightGray"
+                    app:srcCompat="@drawable/ic_star_unfollow_gray" />
+
+                <TextView
+                    android:id="@+id/tvFollower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:text="15k"
+                    android:textColor="@color/colorLightGray"
+                    android:textSize="12dp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+                <Button
+                    android:id="@+id/btnFollow"
+                    android:layout_width="81dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_btnfollow"
+                    android:drawableLeft="@drawable/ic_star_unfollow_blue"
+                    android:drawablePadding="-12dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:text="Follow"
+                    android:textColor="#445fcc"
+                    android:textSize="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/tvFollower"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStoreName" />
+
+                <Button
+                    android:id="@+id/btnSeeOnMap"
+                    android:layout_width="112dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_btnseeonmap"
+                    android:text="See on map"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvAddress"
+                    app:layout_constraintStart_toStartOf="@+id/tvAddress"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:textColor="#00098e"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/random_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Store's deals"
+                    android:textColor="#00098e"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

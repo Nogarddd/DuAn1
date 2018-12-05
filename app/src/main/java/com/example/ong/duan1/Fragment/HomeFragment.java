@@ -40,6 +40,7 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         pager = v.findViewById(R.id.viewPager);
         tab = v.findViewById(R.id.tabLayout);
+        getActivity().setTitle("Home");
 
         MyFragmentAdapter adapter = new MyFragmentAdapter(getFragmentManager());
         pager.setAdapter(adapter);

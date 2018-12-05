@@ -45,6 +45,6 @@
         app:inactive_item_color="@color/colorLightGray"
         app:space_background_color="#e7e7e7"
         app:centre_button_icon="@drawable/ic_near_me"
-        app:space_item_icon_size="25dp"/>
+        app:space_item_icon_size="25dp" />
 
 </FrameLayout>

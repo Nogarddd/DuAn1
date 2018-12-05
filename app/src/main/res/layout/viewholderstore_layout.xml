@@ -39,7 +39,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/tvStoreName"
             app:layout_constraintTop_toBottomOf="@+id/tvStoreName"
-            app:srcCompat="@drawable/ic_star_unfollow_gray" />
+            app:srcCompat="@drawable/ic_star_unfollow_gray"
+            android:tint="@color/colorLightGray"/>
 
         <TextView
             android:id="@+id/tvFollower"

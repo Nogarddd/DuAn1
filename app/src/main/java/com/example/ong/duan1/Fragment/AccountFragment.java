@@ -32,6 +32,7 @@ public class AccountFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_account, container, false);
         pager = v.findViewById(R.id.viewPager);
         tab = v.findViewById(R.id.tabLayout);
+        getActivity().setTitle("Account");
 
         MyFragmentAdapter adapter = new MyFragmentAdapter(getFragmentManager());
         pager.setAdapter(adapter);

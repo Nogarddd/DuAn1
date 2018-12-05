@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.ong.duan1.Fragment.AccountFragment;
+import com.example.ong.duan1.Fragment.FollowingFragment;
 import com.example.ong.duan1.Fragment.HomeFragment;
+import com.example.ong.duan1.Fragment.NearMeFragment;
+import com.example.ong.duan1.Fragment.SavedFragment;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
@@ -36,12 +38,17 @@ public class MainActivity extends AppCompatActivity {
         spaceNavigationView = (SpaceNavigationView) findViewById(R.id.space);
         spaceNavigationView.initWithSaveInstanceState(savedInstanceState);
         spaceNavigationView.addSpaceItem(new SpaceItem("Home", R.drawable.ic_home));
-        spaceNavigationView.addSpaceItem(new SpaceItem("My Account", R.drawable.ic_person));
+        spaceNavigationView.addSpaceItem(new SpaceItem("Following", R.drawable.ic_star_unfollow_gray));
+        spaceNavigationView.addSpaceItem(new SpaceItem("Saved", R.drawable.ic_heart));
+        spaceNavigationView.addSpaceItem(new SpaceItem("Account", R.drawable.ic_person));
+        spaceNavigationView.showIconOnly();
         spaceNavigationView.setSpaceOnClickListener(new SpaceOnClickListener() {
             @Override
             public void onCentreButtonClick() {
-                Intent i=new Intent(MainActivity.this, MapActivity.class);
-                startActivity(i);
+                NearMeFragment mapFragment=new NearMeFragment();
+                fManager.beginTransaction()
+                        .replace(R.id.frameLayout, mapFragment)
+                        .commit();
             }
 
             @Override
@@ -50,6 +57,18 @@ public class MainActivity extends AppCompatActivity {
                     HomeFragment homeFragment=new HomeFragment();
                     fManager.beginTransaction()
                             .replace(R.id.frameLayout,homeFragment)
+                            .commit();
+                }
+                else if (itemName.equals("Following")){
+                    FollowingFragment followingFragment=new FollowingFragment();
+                    fManager.beginTransaction()
+                            .replace(R.id.frameLayout,followingFragment)
+                            .commit();
+                }
+                else if (itemName.equals("Saved")){
+                    SavedFragment savedFragment=new SavedFragment();
+                    fManager.beginTransaction()
+                            .replace(R.id.frameLayout, savedFragment)
                             .commit();
                 }
                 else {
