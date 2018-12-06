@@ -116,19 +116,27 @@ public class LoginActivity extends AppCompatActivity {
     private void LoginWithEmail(){
         String email=edEmail.getText().toString();
         String password=edPassword.getText().toString();
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                            Intent i=new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(i);
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Wrong email or password", Toast.LENGTH_SHORT).show();
+        if (email.isEmpty()){
+            Toast.makeText(this, "Please type an email", Toast.LENGTH_SHORT).show();
+        }
+        if (password.isEmpty()){
+            Toast.makeText(this, "Please type a password", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                                Intent i=new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(i);
+                            } else {
+                                Toast.makeText(LoginActivity.this, "Wrong email or password", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+        }
     }
 
     private void googleSignIn() {
@@ -164,9 +172,16 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                            Intent i=new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(i);
+                            boolean isNew = task.getResult().getAdditionalUserInfo().isNewUser();
+                            if (isNew){
+                                Intent i=new Intent(LoginActivity.this, UpdateProfileActivity.class);
+                                startActivity(i);
+                            }
+                            else {
+                                Intent i=new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(i);
+                                Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
                             Toast.makeText(LoginActivity.this, "Fail", Toast.LENGTH_SHORT).show();
                         }
@@ -182,9 +197,16 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                            Intent i=new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(i);
+                            boolean isNew = task.getResult().getAdditionalUserInfo().isNewUser();
+                            if (isNew){
+                                Intent i=new Intent(LoginActivity.this, UpdateProfileActivity.class);
+                                startActivity(i);
+                            }
+                            else {
+                                Intent i=new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(i);
+                                Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(LoginActivity.this, "Fail", Toast.LENGTH_SHORT).show();

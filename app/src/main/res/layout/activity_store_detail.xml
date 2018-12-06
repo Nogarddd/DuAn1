@@ -76,7 +76,7 @@
                     android:lines="2"
                     android:maxLines="2"
                     android:text="Address: 123 Nam Ky Khoi Nghia, Q.3, TPHCM"
-                    android:textSize="12dp"
+                    android:textSize="10dp"
                     app:layout_constraintStart_toStartOf="@+id/imageView"
                     app:layout_constraintTop_toBottomOf="@+id/btnFollow" />
 

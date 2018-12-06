@@ -12,12 +12,12 @@
         android:background="@color/colorWhite">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/ivUserAvatar"
-            android:layout_width="95dp"
-            android:layout_height="96dp"
-            android:layout_marginStart="92dp"
-            android:layout_marginLeft="92dp"
-            android:layout_marginTop="16dp"
+            android:id="@+id/ivAvatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="50dp"
             android:src="@drawable/kfc_logo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,86 +26,101 @@
             android:id="@+id/tvFullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="84dp"
             android:text="Fullname"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"
-            app:layout_constraintStart_toEndOf="@+id/ivUserAvatar"
+            android:textSize="24dp"
+            app:layout_constraintStart_toEndOf="@+id/ivAvatar"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvAddress"
-            android:layout_width="221dp"
-            android:layout_height="27dp"
+            android:id="@+id/tvEmail"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:lines="2"
-            android:maxLines="2"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/colorLightGray"
+            android:gravity="center|left"
             android:text="Email"
-            android:textSize="12dp"
+            android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivUserAvatar" />
+            app:layout_constraintTop_toBottomOf="@+id/ivAvatar" />
 
         <TextView
-            android:id="@+id/tvAddress2"
-            android:layout_width="251dp"
-            android:layout_height="27dp"
+            android:id="@+id/tvPhone"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:lines="2"
-            android:maxLines="2"
+            android:drawableLeft="@drawable/ic_phone"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/colorLightGray"
+            android:gravity="center|left"
             android:text="Phone"
-            android:textSize="12dp"
+            android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.581"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+            app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
         <TextView
-            android:id="@+id/textView6"
-            android:layout_width="163dp"
-            android:layout_height="18dp"
+            android:id="@+id/tvGender"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:drawableLeft="@drawable/ic_gender"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/colorLightGray"
+            android:gravity="center|left"
             android:text="Gender"
+            android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAddress2" />
+            app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginLeft="52dp"
             android:layout_marginTop="40dp"
+            android:background="@drawable/bg_btnlogin"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="Edit yout profile"
+            android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintTop_toBottomOf="@+id/tvGender" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginRight="48dp"
+            android:layout_marginEnd="52dp"
+            android:layout_marginRight="52dp"
+            android:background="@drawable/bg_btnfblogin"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="Log out"
+            android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintTop_toBottomOf="@+id/tvGender" />
 
     </android.support.constraint.ConstraintLayout>
 

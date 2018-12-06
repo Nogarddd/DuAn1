@@ -40,13 +40,24 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                password=edPassword.getText().toString();
-                String rePassword=edRePassword.getText().toString();
-                if (password.equals(rePassword)){
-                    SignUpWithEmail();
+                String email=edEmail.getText().toString();
+                if (email.isEmpty()){
+                    Toast.makeText(SignUpActivity.this, "Please type an email", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(SignUpActivity.this, "Password does not match", Toast.LENGTH_SHORT).show();
+                    password=edPassword.getText().toString();
+                    if (password.isEmpty()){
+                        Toast.makeText(SignUpActivity.this, "Please type a password", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        String rePassword=edRePassword.getText().toString();
+                        if (password.equals(rePassword)){
+                            SignUpWithEmail();
+                        }
+                        else{
+                            Toast.makeText(SignUpActivity.this, "Password does not match", Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 }
             }
         });
@@ -68,7 +79,6 @@ public class SignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(SignUpActivity.this, "Sign up successful", Toast.LENGTH_SHORT).show();
                             Intent i=new Intent(SignUpActivity.this, UpdateProfileActivity.class);
-                            i.putExtra("email", email);
                             startActivity(i);
                         } else {
                             try {
