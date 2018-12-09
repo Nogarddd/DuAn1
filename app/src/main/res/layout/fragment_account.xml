@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.AccountFragment"
+    tools:context=".fragment.AccountFragment"
     android:orientation="vertical">
 
     <android.support.design.widget.TabLayout
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         app:tabTextColor="@color/colorBlack"
         app:tabSelectedTextColor="#ff0000"
+        app:tabIndicatorColor="@color/colorRed"
         android:background="@drawable/tablayout_border_bottom" />
 
     <android.support.v4.view.ViewPager

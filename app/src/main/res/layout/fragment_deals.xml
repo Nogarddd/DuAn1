@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.DealsFragment"
+    tools:context=".fragment.DealsFragment"
     android:background="#81cecece">
 
     <LinearLayout
@@ -32,7 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/seeAllPopular"
+                android:id="@+id/seeAll_popular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -45,7 +45,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerPopular"
+                android:id="@+id/rv_popular"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
@@ -76,7 +76,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/seeAllEnding"
+                android:id="@+id/seeAll_ending"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -89,7 +89,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerEnding"
+                android:id="@+id/rv_ending"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
@@ -120,7 +120,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerNew"
+                android:id="@+id/rv_new"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
