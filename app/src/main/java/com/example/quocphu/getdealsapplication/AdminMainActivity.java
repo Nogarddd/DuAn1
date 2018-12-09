@@ -1,24 +1,15 @@
 package com.example.quocphu.getdealsapplication;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.facebook.AccessToken;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.zip.Inflater;
 
 public class AdminMainActivity extends AppCompatActivity {
     ImageView iv_request,iv_account_manager,iv_store_manager;
@@ -49,7 +40,7 @@ public class AdminMainActivity extends AppCompatActivity {
         iv_store_manager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdminMainActivity.this,StoreManagerActivity.class));
+                startActivity(new Intent(AdminMainActivity.this,StoreManager2Activity.class));
             }
         });
 

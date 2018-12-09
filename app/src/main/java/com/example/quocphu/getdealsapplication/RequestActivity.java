@@ -50,7 +50,7 @@ public class RequestActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         Toolbar toolbar = findViewById(R.id.toolbar_request);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#ffffff\">" + "Request" + "</font>")); //Đặt màu và title cho toolbar
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#ffffff\">" + "Request" + "</font>")); //Đặt màu và title cho toolbar_client
         queryRequest = FirebaseDatabase.getInstance().getReference("user").orderByChild("request").equalTo("1");
         /*queryRequest.addValueEventListener(new ValueEventListener() {
             @Override

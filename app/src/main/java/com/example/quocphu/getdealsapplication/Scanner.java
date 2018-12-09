@@ -7,7 +7,7 @@ import android.net.Uri;
 import java.io.FileNotFoundException;
 
 public class Scanner {
-    public Bitmap decodeBitmapUri(MainActivity ctx, Uri uri) throws FileNotFoundException {
+    public Bitmap decodeBitmapUri(ClientMainActivity ctx, Uri uri) throws FileNotFoundException {
         int targetW = 1000;
         int targetH = 1000;
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();

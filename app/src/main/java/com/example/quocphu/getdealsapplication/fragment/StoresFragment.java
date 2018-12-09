@@ -42,6 +42,7 @@ public class StoresFragment extends Fragment {
         database.getReference("Store").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ds.clear();
                 for(DataSnapshot store:dataSnapshot.getChildren()) {
                     Store s = store.getValue(Store.class);
                     ds.add(s);

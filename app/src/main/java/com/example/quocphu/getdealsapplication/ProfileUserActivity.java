@@ -115,7 +115,7 @@ public class ProfileUserActivity extends AppCompatActivity {
                    type_account = "client";
                     User user1 = new User(id_user,fullname,email,phone,gender,birthday,type_account);
                     node_user.push().setValue(user1);
-                    startActivity(new Intent(ProfileUserActivity.this,MainActivity.class));
+                    startActivity(new Intent(ProfileUserActivity.this,ClientMainActivity.class));
                     finish();
                 }else if(sp_type_account.getSelectedItemPosition()==1){
                     type_account = "null";

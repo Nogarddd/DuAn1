@@ -33,7 +33,6 @@ public class AccountFragment extends Fragment {
         pager = v.findViewById(R.id.viewPager);
         tab = v.findViewById(R.id.tabLayout);
         getActivity().setTitle("Account");
-
         MyFragmentAdapter adapter = new MyFragmentAdapter(getFragmentManager());
         pager.setAdapter(adapter);
         tab.addTab(tab.newTab().setText("My Account"));

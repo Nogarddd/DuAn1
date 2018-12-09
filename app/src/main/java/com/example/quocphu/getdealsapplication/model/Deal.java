@@ -3,52 +3,54 @@ package com.example.quocphu.getdealsapplication.model;
 import java.io.Serializable;
 
 public class Deal implements Serializable {
-    private String storeName;
-    private int follower;
     private String title;
-    private double percentSale;
-    private double newPrice;
-    private double oldPrice;
-    private int saved;
+    private String oldPrice;
+    private String newPrice;
+    private String dateStart;
+    private String dateEnd;
+    private String quantity;
+    private String codeDeal;
 
     public Deal(){}
 
-    public Deal(String storeName, int follower, String title, double percentSale, double newPrice, double oldPrice, int saved) {
-        this.storeName = storeName;
-        this.follower = follower;
+
+    public Deal(String title, String oldPrice, String newPrice, String dateStart, String dateEnd, String quantity, String codeDeal) {
         this.title = title;
-        this.percentSale = percentSale;
-        this.newPrice = newPrice;
         this.oldPrice = oldPrice;
-        this.saved = saved;
-    }
-
-    public String getStoreName() {
-        return storeName;
-    }
-
-    public int getFollower() {
-        return follower;
+        this.newPrice = newPrice;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.quantity = quantity;
+        this.codeDeal = codeDeal;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public double getPercentSale() {
-        return percentSale;
-    }
-
-    public double getNewPrice() {
-        return newPrice;
-    }
-
-    public double getOldPrice() {
+    public String getOldPrice() {
         return oldPrice;
     }
 
-    public int getSaved() {
-        return saved;
+    public String getNewPrice() {
+        return newPrice;
     }
+
+    public String getDateStart() {
+        return dateStart;
+    }
+
+    public String getDateEnd() {
+        return dateEnd;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public String getCodeDeal() {
+        return codeDeal;
+    }
+
 }
 

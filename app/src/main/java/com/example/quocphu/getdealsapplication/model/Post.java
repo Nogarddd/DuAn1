@@ -10,6 +10,7 @@ public class Post {
     private String timeEnd;
     private String quantity;
     private String codeDeal;
+    private int saved;
 
 
     public Post() {

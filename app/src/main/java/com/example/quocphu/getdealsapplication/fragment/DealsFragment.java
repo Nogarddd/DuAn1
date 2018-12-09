@@ -50,30 +50,46 @@ public class DealsFragment extends Fragment {
         rv_new=v.findViewById(R.id.rv_new);
 
         database=FirebaseDatabase.getInstance();
-        node_deal = database.getReference("deals");
+        node_deal = database.getReference("Deal");
         node_deal.addValueEventListener(new ValueEventListener() {
+            String key_store;
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot deal:dataSnapshot.getChildren()) {
-                    Deal d=deal.getValue(Deal.class);
-                    ds.add(d);
-                }
-                DealHorizontalAdapter adapter=new DealHorizontalAdapter(getContext(),ds);
-                LinearLayoutManager lmanager=new LinearLayoutManager(getContext(),
-                        LinearLayoutManager.HORIZONTAL,
-                        false);
-                LinearLayoutManager lmanager2=new LinearLayoutManager(getContext(),
-                        LinearLayoutManager.HORIZONTAL,
-                        false);
-                LinearLayoutManager lmanager3=new LinearLayoutManager(getContext());
+                for(DataSnapshot itemStore:dataSnapshot.getChildren()) {
+                    key_store = itemStore.getKey();
+                    node_deal.child(key_store).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            ds.clear();
+                            for(DataSnapshot itemDeal:dataSnapshot.getChildren()) {
+                                Deal d = itemDeal.getValue(Deal.class);
+                                ds.add(d);
+                            }
+                            DealHorizontalAdapter adapter=new DealHorizontalAdapter(getContext(),ds);
+                            LinearLayoutManager lmanager=new LinearLayoutManager(getContext(),
+                                    LinearLayoutManager.HORIZONTAL,
+                                    false);
+                            LinearLayoutManager lmanager2=new LinearLayoutManager(getContext(),
+                                    LinearLayoutManager.HORIZONTAL,
+                                    false);
+                            LinearLayoutManager lmanager3=new LinearLayoutManager(getContext());
 
-                rv_popular.setLayoutManager(lmanager);
-                rv_popular.setAdapter(adapter);
-                rv_ending.setLayoutManager(lmanager2);
-                rv_ending.setAdapter(adapter);
-                rv_new.setLayoutManager(lmanager3);
-                rv_new.setAdapter(adapter);
+                            rv_popular.setLayoutManager(lmanager);
+                            rv_popular.setAdapter(adapter);
+                            rv_ending.setLayoutManager(lmanager2);
+                            rv_ending.setAdapter(adapter);
+                            rv_new.setLayoutManager(lmanager3);
+                            rv_new.setAdapter(adapter);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+
             }
 
             @Override

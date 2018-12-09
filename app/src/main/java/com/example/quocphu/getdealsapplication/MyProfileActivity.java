@@ -135,11 +135,11 @@ public class MyProfileActivity extends AppCompatActivity {
                 node_user.setValue(u);
 
                 if(accType.equals("Client")){
-                    Intent i=new Intent(MyProfileActivity.this, MainActivity.class);
+                    Intent i=new Intent(MyProfileActivity.this, ClientMainActivity.class);
                     startActivity(i);
                 }
                 else{
-                    Intent i=new Intent(MyProfileActivity.this, StoreMainActivity.class);
+                    Intent i=new Intent(MyProfileActivity.this, StoreManagerMainActivity.class);
                     startActivity(i);
                 }
 

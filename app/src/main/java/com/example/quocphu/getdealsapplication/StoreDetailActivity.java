@@ -1,18 +1,25 @@
 package com.example.quocphu.getdealsapplication;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.quocphu.getdealsapplication.adapter.DealHorizontalAdapter;
 import com.example.quocphu.getdealsapplication.model.Deal;
 import com.example.quocphu.getdealsapplication.model.Store;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +27,7 @@ import java.util.List;
 public class StoreDetailActivity extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView rv;
-    List<Deal> ds=new ArrayList<Deal>();
+    List<Deal> ds_deal=new ArrayList<Deal>();
     FirebaseDatabase database;
     DatabaseReference databaseReference;
 
@@ -48,8 +55,8 @@ public class StoreDetailActivity extends AppCompatActivity {
         tvAddress=findViewById(R.id.tvAddress);
         btnSeeOnMap=findViewById(R.id.btnSeeOnMap);
 
-        /*store=(Store) getIntent().getSerializableExtra("data");
-        tvStoreName.setText(store.getNameStore());
+        store=(Store) getIntent().getSerializableExtra("data");
+        tvStoreName.setText(store.getStoreName());
         tvAddress.setText(store.getAddress());
         btnSeeOnMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,19 +65,15 @@ public class StoreDetailActivity extends AppCompatActivity {
             }
         });
 
-
-        database=FirebaseDatabase.getInstance();
-        databaseReference=database.getReference();
-        database.getReference("Deals").addValueEventListener(new ValueEventListener() {
+        /*database=FirebaseDatabase.getInstance();
+        database.getReference("Store").addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ds.clear();
-                for(DataSnapshot deal:dataSnapshot.getChildren()) {
-                    Deal d=deal.getValue(Deal.class);
-                    ds.add(d);
+                for(DataSnapshot store:dataSnapshot.getChildren()) {
+                    Store s=store.getValue(Store.class);
                 }
-                DealHorizontalAdapter adapter=new DealHorizontalAdapter(StoreDetailActivity.this,ds);
+                DealHorizontalAdapter adapter=new DealHorizontalAdapter(StoreDetailActivity.this,ds_deal);
                 LinearLayoutManager lmanager=new LinearLayoutManager(StoreDetailActivity.this);
                 rv.setLayoutManager(lmanager);
                 rv.setAdapter(adapter);

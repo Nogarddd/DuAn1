@@ -39,17 +39,17 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".AdminMainActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ClientMainActivity" />
         <activity android:name=".DealDetailActivity" />
         <activity android:name=".ProfileUserActivity" />
         <activity android:name=".AddStoreActivity" />
         <activity android:name=".MyProfileActivity" />
         <activity android:name=".AccountManagerActivity" />
-        <activity android:name=".StoreManagerActivity" />
-        <activity android:name=".StoreMainActivity" />
+        <activity android:name=".StoreManager2Activity" />
+        <activity android:name=".StoreManagerMainActivity" />
         <activity android:name=".StoreDetailActivity" />
         <activity android:name=".StoreUserActivity" />
-        <activity android:name=".PostDealActivity" />
+        <activity android:name=".AddDealActivity" />
         <activity android:name=".RequestActivity" />
         <activity android:name=".EditPostActivity" />
 

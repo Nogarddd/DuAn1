@@ -45,13 +45,13 @@ public class DealHorizontalAdapter extends RecyclerView.Adapter<ViewHolderDeal> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDeal holder, final int position) {
         final Deal deal=ds.get(position);
-        holder.tvStoreName.setText(deal.getStoreName());
-        holder.tvFollower.setText(deal.getFollower()+"");
+        holder.tvStoreName.setText("");
+        holder.tvFollower.setText("");
         holder.tvTitle.setText(deal.getTitle());
-        holder.tvPercentSale.setText(deal.getPercentSale()+"%");
-        holder.tvNewPrice.setText(deal.getNewPrice()+" đ");
-        holder.tvOldPrice.setText(deal.getOldPrice()+" đ");
-        holder.tvSaved.setText(deal.getSaved()+"");
+        holder.tvPercentSale.setText("%");
+        holder.tvNewPrice.setText(deal.getNewPrice());
+        holder.tvOldPrice.setText(deal.getOldPrice());
+        holder.tvSaved.setText("");
         holder.ivStoreLogo.setImageResource(R.drawable.kfc_logo);
         holder.btnFollow.setOnClickListener(new View.OnClickListener() {
             @Override
